@@ -1,22 +1,22 @@
 version: '3'
 services:
-  progression-quiz-web:
+  web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       # 指定したホストPCのディレクトリと指定したコンテナ内のディレクトリが共有される
-      - .:/progression-quiz
+      - .:/app
     ports:
       - 3000:3000
     depends_on:
-      - progression-quiz-db
+      - db
     tty: true
     stdin_open: true
-  progression-quiz-db:
+  db:
     image: mysql:5.7
     volumes:
-      - progression-quiz-db-volume:/var/lib/mysql
+      - db-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
 volumes:
-  progression-quiz-db-volume:
+  db-volume:
