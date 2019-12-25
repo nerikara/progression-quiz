@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+※随時追記します。
 
-Things you may want to cover:
+## 初期化
 
-* Ruby version
+Dockerを使ってプロジェクトを立ち上げます。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. このgitプロジェクトをローカルにクローンします。
+2. ターミナルでクローンしたプロジェクトのディレクリに移動し、以下のコマンドを実行します。
+```
+docker-compose build
+```
+3. 下記コマンドを実行します。
+```
+docker-compose up -d
+```
+4. ブラウザを開き、`localhost:3000`にアクセスできれば成功です。
