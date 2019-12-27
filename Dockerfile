@@ -7,6 +7,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
 
+RUN yarn add bootstrap@4.4.1 jquery@3.4.1 popper.js@1.16.0
+
 # 作業ディレクトリの作成、設定
 RUN mkdir /app
 ##作業ディレクトリ名をAPP_ROOTに割り当てて、以下$APP_ROOTで参照
