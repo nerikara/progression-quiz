@@ -1,8 +1,6 @@
 # 数列を生成するクラス
 class ProgressionGenerator
 
-  include ActiveModel::Model
-
   # 数列を生成する
   def generate(type)
     case type
