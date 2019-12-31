@@ -6,8 +6,8 @@ class Progression
 
   attr_reader :size
 
-  # 数列のサイズ
   def initialize
+    # 数列のサイズ
     @size = 5
   end
 
