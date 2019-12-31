@@ -4,7 +4,7 @@
 # 継承したクラスでオーバーライドさせることを強制する.
 class Progression
 
-  attr_accessor :size
+  attr_reader :size
 
   # 数列のサイズ
   def initialize
