@@ -2,9 +2,9 @@
 class ArithmeticProgression < Progression
 
   # コンストラクタ
-  def initialize(first_term, tolerance)
-    @first_term = first_term
-    @tolerance = tolerance
+  def initialize()
+    @first_term = rand(-10..10)
+    @tolerance = rand(1..10) * [-1, 1].sample
     super()
   end
 
