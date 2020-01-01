@@ -1,7 +1,9 @@
 <h1>数列を表示するページ</h1>
 
 <p>
-  <% @progression_quiz.values.each do |num| %>
+  <% @displayed_values.each do |num| %>
     <%= num %>
   <% end %>
+  <input type="number" name="answer" id="answer" />
 </p>
+<input type="submit" name="submit_answer" id="submit_answer" value="提出する" />
