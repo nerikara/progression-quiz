@@ -10,4 +10,8 @@ class ProgressionController < ApplicationController
     @hidden_value = all_values.pop
     @displayed_values = all_values
   end
+
+  def answer
+    put "answer!"
+  end
 end

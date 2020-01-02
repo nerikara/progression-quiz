@@ -1,9 +1,11 @@
 <h1>数列を表示するページ</h1>
 
 <p>
-  <% @displayed_values.each do |num| %>
-    <%= num %>
+  <%= form_with url: "/" do |form| %>
+    <% @displayed_values.each do |num| %>
+      <%= num %>
+    <% end %>
+    <%= form.number_field :value %>
+    <%= form.submit "提出する" %>
   <% end %>
-  <input type="number" name="answer" id="answer" />
 </p>
-<input type="submit" name="submit_answer" id="submit_answer" value="提出する" />
