@@ -12,6 +12,6 @@ class ProgressionController < ApplicationController
   end
 
   def answer
-    put "answer!"
+    redirect_to "/"
   end
 end
