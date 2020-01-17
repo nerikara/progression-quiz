@@ -6,6 +6,7 @@
       <%= num %>
     <% end %>
     <%= form.number_field :answer %>
+    <%= form.hidden_field :hidden_value, :value => @hidden_value %>
     <%= form.submit "提出する" %>
   <% end %>
 </p>

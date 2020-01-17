@@ -12,8 +12,9 @@ class ProgressionController < ApplicationController
   end
 
   def answer
-    @answer = params[:answer].to_i
-    if @answer == @hidden_value
+    answer = params[:answer].to_i
+    hidden_value = params[:hidden_value].to_i
+    if answer == hidden_value
       redirect_to("/", flash: { right: "正解！" })
     else
       redirect_to("/", flash: { wrong: "不正解..." })
