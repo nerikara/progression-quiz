@@ -9,3 +9,11 @@
     <%= form.submit "提出する" %>
   <% end %>
 </p>
+
+<% if flash[:right] %>
+  <div class="alert alert-success"><%= flash[:right] %></div>
+<% end %>
+
+<% if flash[:wrong] %>
+  <div class="alert alert-danger"><%= flash[:wrong] %></div>
+<% end %>

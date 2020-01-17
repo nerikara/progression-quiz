@@ -5,7 +5,7 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       # 指定したホストPCのディレクトリと指定したコンテナ内のディレクトリが共有される
-      - .:/app
+      - .:/app:cached
     ports:
       - 3000:3000
     depends_on:
@@ -15,7 +15,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - db-volume:/var/lib/mysql
+      - db-volume:/var/lib/mysql:cached
     environment:
       MYSQL_ROOT_PASSWORD: password
 volumes:
