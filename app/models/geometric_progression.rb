@@ -2,10 +2,10 @@
 class GeometricProgression < Progression
 
   # コンストラクタ
-  def initialize()
+  def initialize
     @first_term = rand(1..10) * [-1, 1].sample
     @tolerance = rand(2..10) * [-1, 1].sample
-    super()
+    super
   end
 
   # 初項

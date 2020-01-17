@@ -1,7 +1,20 @@
 <h1>数列を表示するページ</h1>
 
 <p>
-  <% @progression.each do |num| %>
-    <%= num %>
+  <%= form_with(url: "/") do |form| %>
+    <% @displayed_values.each do |num| %>
+      <%= num %>
+    <% end %>
+    <%= form.number_field :answer %>
+    <%= form.hidden_field :hidden_value, :value => @hidden_value %>
+    <%= form.submit "提出する" %>
   <% end %>
 </p>
+
+<% if flash[:right] %>
+  <div class="alert alert-success"><%= flash[:right] %></div>
+<% end %>
+
+<% if flash[:wrong] %>
+  <div class="alert alert-danger"><%= flash[:wrong] %></div>
+<% end %>
