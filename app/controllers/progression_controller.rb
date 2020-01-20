@@ -1,6 +1,9 @@
 class ProgressionController < ApplicationController
 
   def home
+  end
+
+  def quiz
     progression_generator = ProgressionGenerator.new()
     progression = progression_generator.generate(ProgressionType::ARITHMETIC_PROGRESSION)
     # progression = progression_generator.generate(ProgressionType::GEOMETRIC_PROGRESSION)
@@ -15,9 +18,9 @@ class ProgressionController < ApplicationController
     answer = params[:answer].to_i
     hidden_value = params[:hidden_value].to_i
     if answer == hidden_value
-      redirect_to("/", flash: { right: "正解！" })
+      redirect_to("/quiz", flash: { right: "正解！" })
     else
-      redirect_to("/", flash: { wrong: "不正解..." })
+      redirect_to("/quiz", flash: { wrong: "不正解..." })
     end
   end
 end
