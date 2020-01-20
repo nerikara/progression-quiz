@@ -1,1 +1,6 @@
-<h1>Home</h1>
+<h1>数列の種類を選んで問題に挑戦しよう！</h1>
+
+<div class="progression-choice-area">
+  <%= button_to "等比数列", "/quiz", { method: :get, params: {progression_type: ProgressionType::ARITHMETIC_PROGRESSION} } %>
+  <%= button_to "等差数列", "/quiz", { method: :get, params: {progression_type: ProgressionType::GEOMETRIC_PROGRESSION}} %>
+</div>

@@ -5,8 +5,8 @@ class ProgressionController < ApplicationController
 
   def quiz
     progression_generator = ProgressionGenerator.new()
-    progression = progression_generator.generate(ProgressionType::ARITHMETIC_PROGRESSION)
-    # progression = progression_generator.generate(ProgressionType::GEOMETRIC_PROGRESSION)
+    @progression_type = params[:progression_type].to_i
+    progression = progression_generator.generate(@progression_type)
 
     progression_quiz_generator = ProgressionQuizGenerator.new()
     all_values = progression_quiz_generator.generate(progression).values
