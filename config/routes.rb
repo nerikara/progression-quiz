@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "progression#home"
-  post "/", to: "progression#answer"
+  get "/quiz/:progression_type", to: "progression#quiz"
+  post "/answer", to: "progression#answer"
 end

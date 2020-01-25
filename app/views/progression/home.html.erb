@@ -1,20 +1,6 @@
-<h1>数列を表示するページ</h1>
+<h1>数列の種類を選んで問題に挑戦しよう！</h1>
 
-<p>
-  <%= form_with(url: "/") do |form| %>
-    <% @displayed_values.each do |num| %>
-      <%= num %>
-    <% end %>
-    <%= form.number_field :answer %>
-    <%= form.hidden_field :hidden_value, :value => @hidden_value %>
-    <%= form.submit "提出する" %>
-  <% end %>
-</p>
-
-<% if flash[:right] %>
-  <div class="alert alert-success"><%= flash[:right] %></div>
-<% end %>
-
-<% if flash[:wrong] %>
-  <div class="alert alert-danger"><%= flash[:wrong] %></div>
-<% end %>
+<div class="progression-choice-area">
+  <%= button_to "等差数列", "/quiz/#{ProgressionType::ARITHMETIC_PROGRESSION}", { method: :get} %>
+  <%= button_to "等比数列", "/quiz/#{ProgressionType::GEOMETRIC_PROGRESSION}", { method: :get} %>
+</div>
