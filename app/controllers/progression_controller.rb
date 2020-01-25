@@ -15,12 +15,13 @@ class ProgressionController < ApplicationController
   end
 
   def answer
+    progression_type = params[:progression_type].to_i
     answer = params[:answer].to_i
     hidden_value = params[:hidden_value].to_i
     if answer == hidden_value
-      redirect_to("/quiz", flash: { right: "正解！" })
+      redirect_to("/quiz/#{progression_type}", flash: { right: "正解！" })
     else
-      redirect_to("/quiz", flash: { wrong: "不正解..." })
+      redirect_to("/quiz/#{progression_type}", flash: { wrong: "不正解..." })
     end
   end
 end

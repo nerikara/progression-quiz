@@ -7,7 +7,8 @@
     <% end %>
     <%= form.number_field :answer %>
     <%= form.hidden_field :hidden_value, :value => @hidden_value %>
-    <%= form.submit "提出する" %>
+    <%= form.hidden_field :progression_type, :value => @progression_type %>
+    <%= form.submit "答える" %>
   <% end %>
 </p>
 
