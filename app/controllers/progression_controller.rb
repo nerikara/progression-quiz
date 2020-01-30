@@ -24,4 +24,8 @@ class ProgressionController < ApplicationController
       redirect_to("/quiz/#{progression_type}", flash: { wrong: "不正解..." })
     end
   end
+
+  def result
+
+  end
 end
