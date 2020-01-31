@@ -1,4 +1,8 @@
-<h1>結果を表示するページ</h1>
+<h1>成績</h1>
+
+<div>
+  <%= "#{@question_count} 問中 #{@correct_answer_count} 問正解！" %>
+</div>
 
 <div>
   <%= button_to "Home", "/", { method: :get} %>
