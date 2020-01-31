@@ -27,7 +27,14 @@ class ProgressionController < ApplicationController
       session[:question_count] += 1
     end
 
-    progression_type = params[:progression_type].to_i
+    # 規定の出題数達成したら結果へのリンクを生成する
+    if session[:question_count] == 10
+      next_link = "/result"
+    else
+      progression_type = params[:progression_type].to_i
+      next_link = "/quiz/#{progression_type}"
+    end
+
     answer = params[:answer].to_i
     hidden_value = params[:hidden_value].to_i
     if answer == hidden_value
@@ -37,14 +44,14 @@ class ProgressionController < ApplicationController
       elsif
         session[:correct_answer_count] += 1
       end
-
-      redirect_to("/quiz/#{progression_type}", flash: { right: "正解！" })
+      redirect_to(next_link, flash: { right: "正解！" })
     else
-      redirect_to("/quiz/#{progression_type}", flash: { wrong: "不正解..." })
+      redirect_to(next_link, flash: { wrong: "不正解..." })
     end
   end
 
   def result
-
+    @question_count = session[:question_count]
+    @correct_answer_count = session[:correct_answer_count]
   end
 end
