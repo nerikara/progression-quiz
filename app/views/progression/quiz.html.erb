@@ -23,5 +23,12 @@
 <% end %>
 
 <div>
+  <div>
+    <p>正答数 / 出題数</p>
+    <%= "#{@correct_answer_count} / #{@question_count}" %>
+  </div>
+</div>
+
+<div>
   <%= button_to "Home", "/", { method: :get} %>
 </div>
