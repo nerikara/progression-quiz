@@ -2,24 +2,11 @@
 class DifferenceProgression < Progression
 
   # コンストラクタ
-  # @param[Integer] size 数列のサイズ
   # @param [Progression] tolerance_progression 階差数列の公差に使用する数列
-  def initialize(tolerance_progression, size: 5)
-    @size = size
-    @first_term = rand(1..10) * [-1, 1].sample
-    @tolerance = tolerance_progression
-  end
-
-  # 初項
-  # @return [Integer] 初項
-  def first_term
-    @first_term
-  end
-
-  # 公差
-  # @return [Progression] 階差数列の公差として使用する数列
-  def tolerance
-    @tolerance
+  # @param[Integer] size 数列のサイズ
+  def initialize(tolerance_progression, size)
+    first_term = rand(1..10) * [-1, 1].sample
+    super(first_term, tolerance_progression, size)
   end
 
   # 公差
@@ -40,9 +27,9 @@ class DifferenceProgression < Progression
     progression = []
     @size.times do |i|
       if i == 0
-        progression.push(first_term)
+        progression.push(@first_term)
       else
-        progression.push(first_term + tolerance(i - 1))
+        progression.push(@first_term + tolerance(i - 1))
       end
     end
     return progression
