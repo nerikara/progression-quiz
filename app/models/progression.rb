@@ -7,23 +7,24 @@ class Progression
   attr_reader :first_term, :tolerance, :size
 
   # コンストラクタ
-  # @param[Integer] first_term 初項
-  # @param[Any] tolerance 公差
   # @param[Integer] size 数列のサイズ
-  def initialize(first_term, tolerance, size)
-    # 初項
-    @first_term = first_term
-
-    # 公差
-    @tolerance = tolerance
-
+  def initialize(size)
     # 数列のサイズ
     @size = size
   end
 
+  # 一般項
+  # 任意の添字nを与えたとき、n項目の数値を返す
+  # @param [Integer] n 添字
+  # @return [Integer] n項目の数値
+  def general_term(n)
+    raise override_error_message "general_term"
+  end
+
   # 数列本体
+  # @return [Array] 数列
   def elements
-    raise override_error_message "elements"
+    (1..@size).each.map { |i| general_term(i) }
   end
 
   # メソッドがオーバーライドされていないときに出力されるエラーメッセージを生成する
