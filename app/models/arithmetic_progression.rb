@@ -21,7 +21,7 @@ class ArithmeticProgression < Progression
   # 数列本体
   def elements
     progression = []
-    size.times do |i|
+    self.size.times do |i|
       progression.push(first_term + tolerance * i)
     end
     return progression
