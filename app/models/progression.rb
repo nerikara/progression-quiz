@@ -7,7 +7,7 @@ class Progression
   attr_reader :first_term, :tolerance, :size
 
   # コンストラクタ
-  # @param[Integer] size 数列のサイズ
+  # @param [Integer] size 数列のサイズ
   def initialize(size)
     # 数列のサイズ
     @size = size
@@ -24,6 +24,7 @@ class Progression
   # 数列本体
   # @return [Array] 数列
   def elements
+    # [1項目の値, 2項目の値, ... , n項目の値]
     (1..@size).each.map { |i| general_term(i) }
   end
 
