@@ -25,7 +25,7 @@ class Progression
   # @return [Array] 数列
   def elements
     # [1項目の値, 2項目の値, ... , n項目の値]
-    (1..@size).each.map { |i| general_term(i) }
+    (1..@size).each.map { |n| general_term(n) }
   end
 
   # メソッドがオーバーライドされていないときに出力されるエラーメッセージを生成する
