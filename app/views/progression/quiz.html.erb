@@ -1,16 +1,18 @@
 <h1>問題</h1>
 
-<p>
-  <%= form_with(url: "/answer") do |form| %>
-    <% @displayed_values.each do |num| %>
-      <%= num %>
+<div>
+  <p>
+    <%= form_with(url: "/answer") do |form| %>
+      <% @displayed_values.each do |num| %>
+        <%= num %>
+      <% end %>
+      <%= form.number_field :answer %>
+      <%= form.hidden_field :hidden_value, :value => @hidden_value %>
+      <%= form.hidden_field :progression_type, :value => @progression_type %>
+      <%= form.submit "答える" %>
     <% end %>
-    <%= form.number_field :answer %>
-    <%= form.hidden_field :hidden_value, :value => @hidden_value %>
-    <%= form.hidden_field :progression_type, :value => @progression_type %>
-    <%= form.submit "答える" %>
-  <% end %>
-</p>
+  </p>
+</div>
 
 <% if flash[:right] %>
   <div class="alert alert-success"><%= flash[:right] %></div>
@@ -19,3 +21,14 @@
 <% if flash[:wrong] %>
   <div class="alert alert-danger"><%= flash[:wrong] %></div>
 <% end %>
+
+<div>
+  <div>
+    <p>正答数 / 出題数</p>
+    <%= "#{@correct_answer_count} / #{@question_count}" %>
+  </div>
+</div>
+
+<div>
+  <%= button_to "Home", "/", { method: :get} %>
+</div>
