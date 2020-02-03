@@ -16,6 +16,6 @@ class GeometricProgression < Progression
   # an = a1 * r ** (n-1)
   # @return [Integer] n項目の値
   def general_term(n)
-    @first_term * (@tolerance ** (n - 1))
+    @first_term * @tolerance ** (n - 1)
   end
 end
