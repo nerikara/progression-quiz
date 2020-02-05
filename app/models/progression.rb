@@ -4,7 +4,7 @@
 # 継承したクラスでオーバーライドすることを強制する.
 class Progression
 
-  attr_reader :first_term, :tolerance, :size
+  attr_reader :size
 
   # コンストラクタ
   # @param [Integer] size 数列のサイズ
