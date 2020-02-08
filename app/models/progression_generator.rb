@@ -18,6 +18,8 @@ class ProgressionGenerator
       return DifferenceProgression.new(tolerance_progression, PROGRESSION_SIZE)
     when ProgressionType::FIBONACCI_PROGRESSION
       return FibonacciProgression.new(PROGRESSION_SIZE)
+    when ProgressionType::TRIBONACCI_PROGRESSION
+      return TribonacciProgression.new(PROGRESSION_SIZE)
     else
       raise "Undefined progression type"
     end

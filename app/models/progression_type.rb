@@ -16,4 +16,8 @@ class ProgressionType
   # フィボナッチ数列
   FIBONACCI_PROGRESSION = 3
   FIBONACCI_PROGRESSION.freeze
+
+  # トリボナッチ数列
+  TRIBONACCI_PROGRESSION = 4
+  TRIBONACCI_PROGRESSION.freeze
 end
