@@ -17,7 +17,7 @@ class DifferenceProgression < Progression
   # an = a1 + sum( b1, b2, ... , b(n-1) )
   # @return [Integer] n項における値
   def general_term(n)
-    if n <= 0 then raise out_of_range_error_message(n)
+    if not is_term_in_range(n) then raise out_of_range_error_message(n)
     @first_term + (n-1).times.map { |i| @tolerance_progression.elements[i] }.sum
   end
 end
