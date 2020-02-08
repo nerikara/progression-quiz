@@ -9,7 +9,11 @@ class ProgressionType
   GEOMETRIC_PROGRESSION = 1
   GEOMETRIC_PROGRESSION.freeze
 
-  # 階差数列
+  # 階差数列を持つ数列
   DIFFERENCE_PROGRESSION = 2
   DIFFERENCE_PROGRESSION.freeze
+
+  # フィボナッチ数列
+  FIBONACCI_PROGRESSION = 3
+  FIBONACCI_PROGRESSION.freeze
 end

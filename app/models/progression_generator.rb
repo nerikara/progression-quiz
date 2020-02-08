@@ -16,6 +16,8 @@ class ProgressionGenerator
       tolerance_progression = generate([ProgressionType::ARITHMETIC_PROGRESSION,
                                         ProgressionType::GEOMETRIC_PROGRESSION].sample)
       return DifferenceProgression.new(tolerance_progression, PROGRESSION_SIZE)
+    when ProgressionType::FIBONACCI_PROGRESSION
+      return FibonacciProgression.new(PROGRESSION_SIZE)
     else
       raise "Undefined progression type"
     end
