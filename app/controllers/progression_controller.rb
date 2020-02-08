@@ -1,6 +1,7 @@
 class ProgressionController < ApplicationController
 
   def home
+    clear_flash
     session.delete(:correct_answer_count)
     session.delete(:question_count)
   end
@@ -23,11 +24,8 @@ class ProgressionController < ApplicationController
 
   def answer
     # 出題数を更新
-    if session[:question_count].nil?
-      session[:question_count] = 1
-    elsif
-      session[:question_count] += 1
-    end
+    session[:question_count] ||= 0
+    session[:question_count] += 1
 
     # 規定の出題数達成したら結果へのリンクを生成する
     if session[:question_count] == 10
@@ -41,11 +39,8 @@ class ProgressionController < ApplicationController
     hidden_value = params[:hidden_value].to_i
     if answer == hidden_value
       # 正答数を更新
-      if session[:correct_answer_count].nil?
-        session[:correct_answer_count] = 1
-      elsif
-        session[:correct_answer_count] += 1
-      end
+      session[:correct_answer_count] ||= 0
+      session[:correct_answer_count] += 1
       redirect_to(next_link, flash: { right: "正解！" })
     else
       redirect_to(next_link, flash: { wrong: "不正解..." })
@@ -53,7 +48,15 @@ class ProgressionController < ApplicationController
   end
 
   def result
+    clear_flash
     @question_count = session[:question_count]
-    @correct_answer_count = session[:correct_answer_count]
+    @correct_answer_count = session[:correct_answer_count] || 0
+  end
+
+  private
+
+  def clear_flash
+    flash[:right] = nil
+    flash[:wrong] = nil
   end
 end
