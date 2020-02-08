@@ -22,6 +22,13 @@ class Progression
     raise override_error_message "general_term"
   end
 
+  # 項が範囲内かどうか
+  # @param[Integer] term 項
+  # @return[true, false] 0より大きければtrue, それ以外はfalse
+  protected def is_term_in_range(term)
+    return term > 0
+  end
+
   # 数列本体
   # @return [Array] 数列
   def elements
