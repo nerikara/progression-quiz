@@ -34,4 +34,9 @@ class Progression
   private def override_error_message(method_name)
     return "abstract method: " + method_name + " should be overriden."
   end
+
+  # 参照された数列の項数が範囲外である場合のエラーメッセージを返す
+  protected def out_of_range_error_message
+    return "Progression index is out of range."
+  end
 end
