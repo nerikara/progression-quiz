@@ -15,8 +15,9 @@ class Progression
 
   # 一般項
   # 任意の添字nを与えたとき、n項目の数値を返す
-  # @param [Integer] n 添字
-  # @return [Integer] n項目の数値
+  # 子クラスに実装を強制させるため、実装していない場合は例外を発生させる
+  # @param [Integer] n 項
+  # @raise 未オーバーライドエラー
   def general_term(n)
     raise override_error_message "general_term"
   end
@@ -36,7 +37,9 @@ class Progression
   end
 
   # 参照された数列の項数が範囲外である場合のエラーメッセージを返す
-  protected def out_of_range_error_message
-    return "Progression index is out of range."
+  # @param [Integer] term 項
+  # @return [String] エラーメッセージ
+  protected def out_of_range_error_message(term)
+    return "Term '#{term.to_s}' is out of range."
   end
 end

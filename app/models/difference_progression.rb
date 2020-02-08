@@ -15,8 +15,9 @@ class DifferenceProgression < Progression
 
   # 階差数列の一般項
   # an = a1 + sum( b1, b2, ... , b(n-1) )
-  # @return [Integer] n項目の値
+  # @return [Integer] n項における値
   def general_term(n)
+    if n <= 0 then raise out_of_range_error_message(n)
     @first_term + (n-1).times.map { |i| @tolerance_progression.elements[i] }.sum
   end
 end

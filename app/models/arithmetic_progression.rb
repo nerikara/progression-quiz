@@ -14,8 +14,9 @@ class ArithmeticProgression < Progression
 
   # 一般項
   # an = a1 + (n-1)d
-  # @return [Integer] n項目の値
+  # @return [Integer] n項における値
   def general_term(n)
+    if n <= 0 then raise out_of_range_error_message(n)
     @first_term + @tolerance * (n - 1)
   end
 end

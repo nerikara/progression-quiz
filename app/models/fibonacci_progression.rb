@@ -13,8 +13,10 @@ class FibonacciProgression < Progression
   # a1 = a2 = 1
   # an = a(n-2) + a(n-1) (when: n >= 3)
   # @param [Integer] n 添字
-  # @return [Integer] n項目の数値
+  # @return [Integer] n項における値
   def general_term(n)
+    if n <= 0 then raise out_of_range_error_message(n)
+
     if n == 1 || n == 2
       return 1
     else
