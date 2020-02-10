@@ -12,10 +12,10 @@ class ProgressionGenerator
       return ArithmeticProgression.new(PROGRESSION_SIZE)
     when ProgressionType::GEOMETRIC_PROGRESSION
       return GeometricProgression.new(PROGRESSION_SIZE)
-    when ProgressionType::DIFFERENCE_PROGRESSION
-      tolerance_progression = generate([ProgressionType::ARITHMETIC_PROGRESSION,
-                                        ProgressionType::GEOMETRIC_PROGRESSION].sample)
-      return DifferenceProgression.new(tolerance_progression, PROGRESSION_SIZE)
+    when ProgressionType::PROGRESSION_WITH_DIFFERENCE_PROGRESSION
+      difference_progression = generate([ProgressionType::ARITHMETIC_PROGRESSION,
+                                         ProgressionType::GEOMETRIC_PROGRESSION].sample)
+      return ProgressionWithDifferenceProgression.new(difference_progression, PROGRESSION_SIZE)
     when ProgressionType::FIBONACCI_PROGRESSION
       return FibonacciProgression.new(PROGRESSION_SIZE)
     when ProgressionType::TRIBONACCI_PROGRESSION

@@ -20,9 +20,9 @@ class TribonacciProgression < Progression
   end
 
   # 一般項
-  # a1 = 任意の数
-  # a2 = 任意の数
-  # a3 = 任意の数
+  # a1 = 初項の値
+  # a2 = 2項の値
+  # a3 = 3項の値
   # an = a(n-3) + a(n-2) + a(n-1) (when: n >= 4)
   # @param [Integer] n 添字
   # @return [Integer] n項における値

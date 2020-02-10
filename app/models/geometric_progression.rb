@@ -6,9 +6,13 @@ class GeometricProgression < Progression
   # @param [Integer] size 数列のサイズ
   def initialize(size)
     # 初項
-    @first_term = rand(1..10) * [-1, 1].sample
+    @FIRST_VALUE = rand(1..10) * [-1, 1].sample
+    @FIRST_VALUE.freeze
+
     # 公比
-    @tolerance = rand(2..10) * [-1, 1].sample
+    @TOLERANCE = rand(2..10) * [-1, 1].sample
+    @TOLERANCE.freeze
+
     super(size)
   end
 
@@ -17,6 +21,6 @@ class GeometricProgression < Progression
   # @return [Integer] n項における値
   def general_term(n)
     if not is_term_in_range(n) then raise out_of_range_error_message(n)
-    @first_term * @tolerance ** (n - 1)
+    @FIRST_VALUE * @TOLERANCE ** (n - 1)
   end
 end
