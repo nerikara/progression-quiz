@@ -20,7 +20,7 @@ class GeometricProgression < Progression
   # an = a1 * r ** (n-1)
   # @return [Integer] n項における値
   def general_term(n)
-    if not is_term_in_range(n) then raise out_of_range_error_message(n)
+    raise out_of_range_error_message(n) if not is_term_in_range(n)
     @FIRST_VALUE * @TOLERANCE ** (n - 1)
   end
 end

@@ -11,6 +11,6 @@ class ProgressionQuiz
     @values = progression.elements
 
     # 隠された数列の項数(0オリジン)
-    @target_index = progression.size - 1
+    @target_index = progression.SIZE - 1
   end
 end
