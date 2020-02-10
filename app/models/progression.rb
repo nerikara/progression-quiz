@@ -4,13 +4,14 @@
 # 継承したクラスでオーバーライドすることを強制する.
 class Progression
 
-  attr_reader :size
+  attr_reader :SIZE
 
   # コンストラクタ
   # @param [Integer] size 数列のサイズ
   def initialize(size)
     # 数列のサイズ
-    @size = size
+    @SIZE = size
+    @SIZE.freeze
   end
 
   # 一般項
@@ -33,7 +34,7 @@ class Progression
   # @return [Array] 数列
   def elements
     # [1項目の値, 2項目の値, ... , n項目の値]
-    (1..@size).each.map { |n| general_term(n) }
+    (1..@SIZE).each.map { |n| general_term(n) }
   end
 
   # メソッドがオーバーライドされていないときに出力されるエラーメッセージを生成する
