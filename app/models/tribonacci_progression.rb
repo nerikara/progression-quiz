@@ -27,7 +27,7 @@ class TribonacciProgression < Progression
   # @param [Integer] n 添字
   # @return [Integer] n項における値
   def general_term(n)
-    if not is_term_in_range(n) then raise out_of_range_error_message(n)
+    raise out_of_range_error_message(n) if not is_term_in_range(n)
 
     if n == 1
       return @FIRST_VALUE
