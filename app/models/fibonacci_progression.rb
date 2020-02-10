@@ -4,30 +4,32 @@ class FibonacciProgression < Progression
   # コンストラクタ
   # @param [Integer] size 数列のサイズ
   def initialize(size)
-    # 項数加算値
-    @term_adder = rand(0..15)
+    # 初項の値
+    @FIRST_VALUE = rand(1..10)
+    @FIRST_VALUE.freeze
+
+    # 2項の値
+    @SECOND_VALUE = rand(1..10)
+    @SECOND_VALUE.freeze
+
     super(size)
   end
 
   # 一般項
-  # a1 = a2 = 1
+  # a1 = 任意の数
+  # a2 = 任意の数
   # an = a(n-2) + a(n-1) (when: n >= 3)
   # @param [Integer] n 添字
   # @return [Integer] n項における値
   def general_term(n)
     if not is_term_in_range(n) then raise out_of_range_error_message(n)
 
-    if n == 1 or n == 2
-      return 1
+    if n == 1
+      return @FIRST_VALUE
+    elsif n == 2
+      return @SECOND_VALUE
     else
       return general_term(n - 2) + general_term(n - 1)
     end
-  end
-
-  # 数列本体
-  # @return [Array] 数列
-  def elements
-    # [1項目の値, 2項目の値, ... , n項目の値]
-    (1..@size).each.map { |n| general_term(n + @term_adder) }
   end
 end
