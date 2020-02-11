@@ -11,9 +11,9 @@ class ProgressionController < ApplicationController
     @question_count = session[:question_count].to_i
 
     # 数列クイズを生成
-    level = params[:level].to_i
+    @level = params[:level].to_i
     progression_quiz_generator = ProgressionQuizGenerator.new()
-    progression_quiz = progression_quiz_generator.generate_quiz_of_level(level)
+    progression_quiz = progression_quiz_generator.generate_quiz_of_level(@level)
     all_values = progression_quiz.values
     @hidden_value = all_values.pop
     @displayed_values = all_values
@@ -28,8 +28,8 @@ class ProgressionController < ApplicationController
     if session[:question_count] == 10
       next_link = "/result"
     else
-      progression_type = params[:progression_type].to_i
-      next_link = "/quiz/#{progression_type}"
+      level = params[:level].to_i
+      next_link = "/quiz/#{level}"
     end
 
     answer = params[:answer].to_i
