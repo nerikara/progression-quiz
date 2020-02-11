@@ -37,7 +37,7 @@ class ProgressionGenerator
     when ProgressionType::TRIBONACCI_PROGRESSION
       return TribonacciProgression.new(PROGRESSION_SIZE)
     else
-      raise "Undefined progression type"
+      raise "Undefined progression type: '#{type}'"
     end
   end
 end
