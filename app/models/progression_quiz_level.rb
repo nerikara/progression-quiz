@@ -1,15 +1,15 @@
 # 数列クイズのレベル
 class ProgressionQuizLevel
 
-  # レベル1
-  LEVEL1 = 0
-  LEVEL1.freeze
+  # 簡単
+  EASY = 0
+  EASY.freeze
 
-  # レベル2
-  LEVEL2 = 1
-  LEVEL2.freeze
+  # 普通
+  NORMAL = 1
+  NORMAL.freeze
 
-  # レベル3
-  LEVEL3 = 2
-  LEVEL3.freeze
+  # 難しい
+  HARD = 2
+  HARD.freeze
 end

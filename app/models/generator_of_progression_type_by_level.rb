@@ -6,13 +6,13 @@ class GeneratorOfProgressionTypeByLevel
   # @return [Array[ProgressionType]] 数列種別のリスト
   def generate_progression_type_list_of_level(level)
     case level
-    when ProgressionQuizLevel::LEVEL1
+    when ProgressionQuizLevel::EASY
       return [ProgressionType::ARITHMETIC_PROGRESSION,
               ProgressionType::GEOMETRIC_PROGRESSION]
-    when ProgressionQuizLevel::LEVEL2
+    when ProgressionQuizLevel::NORMAL
       return [ProgressionType::PROGRESSION_WITH_1_DIFFERENCE_PROGRESSION,
               ProgressionType::FIBONACCI_PROGRESSION]
-    when ProgressionQuizLevel::LEVEL3
+    when ProgressionQuizLevel::HARD
       return [ProgressionType::PROGRESSION_WITH_2_DIFFERENCE_PROGRESSIONS,
               ProgressionType::TRIBONACCI_PROGRESSION]
     else

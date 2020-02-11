@@ -2,12 +2,12 @@
 
 <div class="progression-choice-area">
   <div>
-    <%= button_to "レベル1", "/quiz/#{ProgressionQuizLevel::LEVEL1}", { method: :get} %>
+    <%= button_to "甘口", "/quiz/#{ProgressionQuizLevel::EASY}", { method: :get} %>
   </div>
   <div>
-    <%= button_to "レベル2", "/quiz/#{ProgressionQuizLevel::LEVEL2}", { method: :get} %>
+    <%= button_to "中辛", "/quiz/#{ProgressionQuizLevel::NORMAL}", { method: :get} %>
   </div>
   <div>
-    <%= button_to "レベル3", "/quiz/#{ProgressionQuizLevel::LEVEL3}", { method: :get} %>
+    <%= button_to "辛口", "/quiz/#{ProgressionQuizLevel::HARD}", { method: :get} %>
   </div>
 </div>
