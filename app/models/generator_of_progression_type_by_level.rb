@@ -2,17 +2,18 @@
 class GeneratorOfProgressionTypeByLevel
 
   # レベルに応じた数列種別のリストを生成する
+  # @param [ProgressionQuizLevel] level 数列クイズのレベル
+  # @return [Array[ProgressionType]] 数列種別のリスト
   def generate_progression_type_list_of_level(level)
+    # TODO: 階差数列を持つ数列を加える
     case level
     when ProgressionQuizLevel::LEVEL1
       return [ProgressionType::ARITHMETIC_PROGRESSION,
               ProgressionType::GEOMETRIC_PROGRESSION]
     when ProgressionQuizLevel::LEVEL2
-      # TODO: レベルに応じた数列種別のリストを生成する
-      raise "Undefined"
+      return [ProgressionType::FIBONACCI_PROGRESSION]
     when ProgressionQuizLevel::LEVEL3
-      # TODO: レベルに応じた数列種別のリストを生成する
-      raise "Undefined"
+      return [ProgressionType::TRIBONACCI_PROGRESSION]
     else
       raise "Undefined"
     end

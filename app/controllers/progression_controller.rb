@@ -11,9 +11,9 @@ class ProgressionController < ApplicationController
     @question_count = session[:question_count].to_i
 
     # 数列クイズを生成
+    level = params[:level].to_i
     progression_quiz_generator = ProgressionQuizGenerator.new()
-    progression_quiz =
-        progression_quiz_generator.generate_quiz_of_level(ProgressionQuizLevel::LEVEL1)
+    progression_quiz = progression_quiz_generator.generate_quiz_of_level(level)
     all_values = progression_quiz.values
     @hidden_value = all_values.pop
     @displayed_values = all_values
