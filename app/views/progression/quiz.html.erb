@@ -3,7 +3,7 @@
 <div>
   <p>
     <%= form_with(url: "/answer") do |form| %>
-      <% @displayed_values.each do |num| %>
+      <% @shown_values.each do |num| %>
         <%= num %>
       <% end %>
       <%= form.number_field :answer %>
