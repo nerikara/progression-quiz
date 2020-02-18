@@ -13,10 +13,9 @@ class ProgressionController < ApplicationController
     # 数列クイズを生成
     @level = params[:level].to_i
     progression_quiz_generator = ProgressionQuizGenerator.new()
-    progression_quiz = progression_quiz_generator.generate_quiz_of_level(@level)
-    all_values = progression_quiz.values
-    @hidden_value = all_values.pop
-    @displayed_values = all_values
+    progression_quiz = progression_quiz_generator.generate_quiz_by_level(@level)
+    @shown_values = progression_quiz.shown_values
+    @hidden_value = progression_quiz.hidden_value
   end
 
   def answer
