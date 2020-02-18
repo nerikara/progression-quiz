@@ -10,6 +10,6 @@ class ProgressionQuizGenerator
         progression_type_generator.generate_progression_type_list_by_level(level).sample
     progression_generator = ProgressionGenerator.new
     progression = progression_generator.generate(progression_type)
-    return ProgressionQuiz.nwe(progression)
+    return ProgressionQuiz.new(progression)
   end
 end
