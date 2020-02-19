@@ -12,8 +12,10 @@ class ProgressionController < ApplicationController
 
     # 数列クイズを生成
     @level = params[:level].to_i
+    # TODO: 数列のサイズを難易度によって変更する
+    size = 6
     progression_quiz_generator = ProgressionQuizGenerator.new()
-    progression_quiz = progression_quiz_generator.generate_quiz_by_level(@level)
+    progression_quiz = progression_quiz_generator.generate(level: @level, size: size)
     @shown_values = progression_quiz.shown_values
     @hidden_value = progression_quiz.hidden_value
   end

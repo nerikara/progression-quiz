@@ -2,14 +2,15 @@
 class ProgressionQuizGenerator
 
   # レベルに応じたクイズを生成する
-  # @param [ProgressionQuizLevel] レベル
+  # @param [ProgressionQuizLevel] level レベル
+  # @param [Integer] size 数列のサイズ
   # @return [ProgressionQuiz] 数列クイズ
-  def generate_quiz_by_level(level)
+  def generate(level:, size:)
     progression_type_generator = GeneratorOfProgressionTypeByLevel.new
     progression_type =
         progression_type_generator.generate_progression_type_list_by_level(level).sample
     progression_generator = ProgressionGenerator.new
-    progression = progression_generator.generate(progression_type)
+    progression = progression_generator.generate(type: progression_type, size: size)
     return ProgressionQuiz.new(progression)
   end
 end
