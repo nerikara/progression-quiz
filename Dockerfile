@@ -3,11 +3,12 @@ FROM ruby:2.6.3
 # 必要なパッケージのインストール（基本的に必要になってくるものだと思うので削らないこと）
 # Rails6でwebpackerが搭載され、yarnのインストールが必要になった
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
-
-RUN yarn add bootstrap@4.4.1 jquery@3.4.1 popper.js@1.16.0
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update -qq \
+    && apt-get install -y nodejs yarn \
+    && yarn add bootstrap@4.4.1 jquery@3.4.1 popper.js@1.16.0 \
+    && rm -rf yarn.lock \
+    && yarn install
 
 # 作業ディレクトリの作成、設定
 RUN mkdir /app
